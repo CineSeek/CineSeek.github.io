@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineSeek - Movie Tracker App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00b4d8, #90e0ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 10%;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover { transform: translateY(-10px); }
+        .download-section {
+            text-align: center;
+            padding: 6rem 10%;
+            background: #0f3460;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            font-size: 1.2rem;
+            background: #00b4d8;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+        .download-btn:hover {
+            background: #90e0ef;
+            transform: scale(1.05);
+        }
+        .developer {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 4rem 10%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .developer .social-links a {
+            color: #00b4d8;
+            font-size: 2rem;
+            margin-right: 1.5rem;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .developer .social-links a:hover { color: #90e0ef; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .floating-img {
+            animation: float 3s ease-in-out infinite;
+            position: absolute;
+            right: 10%;
+            max-width: 400px;
+        }
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; padding: 2rem 5%; }
+            .floating-img { position: static; max-width: 100%; margin-top: 2rem; }
+            .developer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Ultimate Movie Tracker</h1>
+            <p class="tagline">Organize, Discover, and Never Miss a Great Film</p>
+            <a href="#download" class="download-btn">
+                <i class="fas fa-download"></i> 
+                Download Now
+            </a>
+        </div>
+ <img src="https://i.ibb.co/cW55Tgk/220979217.png" alt="CineSeek Preview" class="floating-img">
+
+
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features">
+       <div class="feature-card">
+        <i class="fas fa-user-lock fa-3x"></i>
+        <h3>Secure Login</h3>
+        <p>Sign in with Google or email/password for a safe and easy experience.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-database fa-3x"></i>
+        <h3>Movie Database</h3>
+        <p>Fetch movie details (poster, director, rating, etc.)</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-list fa-3x"></i>
+        <h3>Watchlists</h3>
+        <p>Save movies to watch later and track the ones you've already seen.</p>
+    </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section class="developer">
+        <div>
+            <h2>Created with ❤️ by Sandeep</h2>
+            <p>Passionate developer dedicated to creating tools that enhance your movie experience</p>
+            <div class="social-links">
+                <a href="https://github.com/Sandeep1629" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/bommabathina-naga-sandeep-240183247/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section" id="download">
+        <h2>Ready to Transform Your Movie Experience?</h2>
+        <p>Available for Android</p>
+        <a href="https://drive.google.com/file/d/11Vu_hBFI7RFT-vpTQ_QvFF_NLJc3HRtR/view?usp=sharing" class="download-btn" target="_blank">
+            <i class="fas fa-download"></i> 
+            Get CineSeek APK
+        </a>
+        
+    </section>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
